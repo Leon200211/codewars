@@ -3,6 +3,8 @@
 // https://www.codewars.com/kata/57873ab5e55533a2890000c7
 
 function timeCorrect($timestring) {
+    //return false === ($date = DateTime::createFromFormat('H:i:s', $timestring)) ? null : $date->format('H:i:s');
+
     if (is_null($timestring)) {
         return null;
     }
@@ -15,11 +17,7 @@ function timeCorrect($timestring) {
         return null;
     }
 
-    $timeArray = explode(':', $timestring);
-
-    $seconds = $timeArray[2];
-    $minutes = $timeArray[1];
-    $hours = $timeArray[0];
+    list($hours, $minutes, $seconds) = explode(':', $timestring);
 
     if ($seconds >= 60) {
         $seconds = $seconds % 60;
