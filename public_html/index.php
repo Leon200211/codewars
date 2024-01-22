@@ -1,5 +1,5 @@
 <?php
 
-require_once '8_kyu/return_negative.php';
+require_once '8_kyu/perimeter_sequence.php';
 
-echo makeNegative(0);
+echo perimeter_sequence(1, 3);
