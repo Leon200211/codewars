@@ -1,5 +1,6 @@
 <?php
 
-require_once '7_kyu/square_pi.php';
+require_once '6_kyu/simple_encryption.php';
 
-echo squarePi(1);
+//echo encrypt('This is a test!',0);
+echo decrypt('s eT ashi tist!',2);
