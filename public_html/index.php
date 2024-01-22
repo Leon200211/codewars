@@ -1,5 +1,5 @@
 <?php
 
-require_once '8_kyu/perimeter_sequence.php';
+require_once '7_kyu/correct_the_time-string.php';
 
-echo perimeter_sequence(1, 3);
+echo timeCorrect('23:99:99');
