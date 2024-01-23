@@ -1,6 +1,6 @@
 <?php
 
-require_once '6_kyu/simple_encryption.php';
+require_once '8_kyu/rock_paper_scissors.php';
 
 //echo encrypt('This is a test!',0);
-echo decrypt('s eT ashi tist!',2);
+echo rpc('rock', 'scissors');
