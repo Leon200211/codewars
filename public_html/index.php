@@ -1,6 +1,5 @@
 <?php
 
-require_once '8_kyu/rock_paper_scissors.php';
+require_once '6_kyu/detect_pangram.php';
 
-//echo encrypt('This is a test!',0);
-echo rpc('rock', 'scissors');
+echo detect_pangram('The quick brown fox jumps over the lazy dog.');
