@@ -1,5 +1,5 @@
 <?php
 
-require_once '6_kyu/make_the_deadfish_swim.php';
+require_once '5_kyu/rgb_to_hex.php';
 
 echo pyramid();
