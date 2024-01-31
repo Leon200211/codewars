@@ -1,5 +1,5 @@
 <?php
 
-require_once '5_kyu/rgb_to_hex.php';
+require_once '5_kyu/beeramid.php';
 
-echo pyramid();
+echo beeramid(-1, 4);
