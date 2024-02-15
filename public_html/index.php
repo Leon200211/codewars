@@ -1,5 +1,6 @@
 <?php
 
-require_once '5_kyu/merged_string_checker.php';
+require_once '4_kyu/permutations.php';
 
-var_dump(isMerge('Bananas from Bahamas', 'Bahas', 'Bananas from am'));
+
+permutations('ab');
