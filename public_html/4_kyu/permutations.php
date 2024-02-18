@@ -2,7 +2,28 @@
 
 // https://www.codewars.com/kata/5254ca2719453dcc0b00027d
 
-function perReq($sArray) {
+
+
+function getCombine($sArray) {
+
+    if (count($sArray) > 2) {
+        $firstItem = $sArray[0];
+        $itemForCombine = getCombine(array_slice($sArray, 1));
+
+        $result = [];
+
+        foreach ($itemForCombine as $item) {
+            $result[] = $firstItem . $item;
+        }
+
+        return $result;
+    } else {
+        $result[] = implode($sArray);
+        $result[] = implode(array_reverse($sArray));
+
+        return $result;
+    }
+
     $result = [];
 
     $firstItem = $sArray[0];
@@ -32,7 +53,7 @@ function permutations(string $s): array {
         unset($arrayForReq[$key]);
         array_unshift($arrayForReq, $firstItem);
 
-        $arrayForIter[] = perReq($arrayForReq);
+        $result[] = getCombine(array_slice($arrayForReq, 1));
 
 
     }
