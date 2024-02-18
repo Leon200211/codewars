@@ -2,46 +2,40 @@
 
 // https://www.codewars.com/kata/5254ca2719453dcc0b00027d
 
-function rearrangementArray(array $array) {
+function perReq($sArray) {
     $result = [];
 
-    if (count($array) == 2) {
-        return $array;
+    $firstItem = $sArray[0];
+
+    if (count($sArray) > 2) {
+        $arrayForCombo = perReq(array_splice($sArray, 1));
+
+        foreach ($arrayForCombo as $key => $item) {
+            $result[] = $firstItem . $item;
+
+        }
+    } else {
+        $result[] = implode($sArray);
+        $result[] = implode(array_reverse($sArray));
     }
 
-    foreach ($array as $key => $item) {
-        $firstItem = $item;
-        $arrayForIter = $array;
-        unset($arrayForIter[$key]);
-        array_unshift($arrayForIter, $firstItem);
-
-        $result[] = $arrayForIter;
-
-        rearrangementArray(array_splice($arrayForIter, 1));
-
-    }
-
-    exit();
+    return $result;
 }
 
 function permutations(string $s): array {
     $sArray = str_split($s);
 
-    $result = [];
-
-
     foreach ($sArray as $key => $item) {
+
         $firstItem = $item;
-        $arrayForIter = $sArray;
-        unset($arrayForIter[$key]);
-        array_unshift($arrayForIter, $firstItem);
+        $arrayForReq = $sArray;
+        unset($arrayForReq[$key]);
+        array_unshift($arrayForReq, $firstItem);
 
-        $result[] = $arrayForIter;
+        $arrayForIter[] = perReq($arrayForReq);
 
-        rearrangementArray(array_splice($arrayForIter, 1));
 
     }
-
 
     return $result;
 }
