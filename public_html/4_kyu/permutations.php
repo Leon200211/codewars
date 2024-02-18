@@ -2,42 +2,52 @@
 
 // https://www.codewars.com/kata/5254ca2719453dcc0b00027d
 
-class Lex
-{
-    public int $n;
-    public array $p;
-    public array $used;
-    public string $str;
-
-    public function __construct(int $n) {
-        $this->n = $n;
-    }
-
-    public function makeLex(int $pos) {
-        if ($pos === $this->n) {
-            for ($i = 0; $i < $this->n; $i++) {
-                echo $this->p[$i];
-            }
-
-            return;
-        }
-
-        for ($i = 0; $i < $this->n; $i++) {
-            if (!$this->used[$i]) {
-                $this->used[$i] = true;
-                $this->p[$pos] = $i;
-
-                $this->makeLex($pos + 1);
-
-                $this->p[$pos] = 0;
-                $this->used[$i] = false;
-            }
-        }
-    }
-}
 
 function permutations(string $s): array {
-    $lex = new Lex(strlen($s));
+    $sArray = str_split($s);
 
-    exit();
+    $result = [];
+
+    if ($sArray > 1) {
+
+    }
+
+    //$result = array_unique($result);
+    //exit();
+
+    return $result;
+}
+
+
+
+
+
+function permutations(string $s): array {
+    $sArray = str_split($s);
+
+    $result = [];
+
+    foreach ($sArray as $key => $item) {
+
+        $firstItem = $item;
+        $arrayForIter = $sArray;
+        unset($arrayForIter[$key]);
+
+        array_unshift($arrayForIter, $firstItem);
+
+        for ($i = 1; $i < count($arrayForIter); $i++) {
+            $result[] = implode($arrayForIter);
+
+            if (!empty($arrayForIter[$i + 1])) {
+                $curItem = $arrayForIter[$i];
+                $nextItem = $arrayForIter[$i + 1];
+                $arrayForIter[$i] = $nextItem;
+                $arrayForIter[$i + 1] = $curItem;
+            }
+        }
+    }
+
+    //$result = array_unique($result);
+
+    return $result;
 }
