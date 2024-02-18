@@ -2,52 +2,51 @@
 
 // https://www.codewars.com/kata/5254ca2719453dcc0b00027d
 
-
-function permutations(string $s): array {
-    $sArray = str_split($s);
-
+function rearrangementArray(array $array) {
     $result = [];
 
-    if ($sArray > 1) {
+    if (count($array) == 2) {
+        return $array;
+    }
+
+    foreach ($array as $key => $item) {
+        $firstItem = $item;
+        $arrayForIter = $array;
+        unset($arrayForIter[$key]);
+        array_unshift($arrayForIter, $firstItem);
+
+        $result[] = $arrayForIter;
+
+        rearrangementArray(array_splice($arrayForIter, 1));
 
     }
 
-    //$result = array_unique($result);
-    //exit();
-
-    return $result;
+    exit();
 }
-
-
-
-
 
 function permutations(string $s): array {
     $sArray = str_split($s);
 
     $result = [];
 
-    foreach ($sArray as $key => $item) {
 
+    foreach ($sArray as $key => $item) {
         $firstItem = $item;
         $arrayForIter = $sArray;
         unset($arrayForIter[$key]);
-
         array_unshift($arrayForIter, $firstItem);
 
-        for ($i = 1; $i < count($arrayForIter); $i++) {
-            $result[] = implode($arrayForIter);
+        $result[] = $arrayForIter;
 
-            if (!empty($arrayForIter[$i + 1])) {
-                $curItem = $arrayForIter[$i];
-                $nextItem = $arrayForIter[$i + 1];
-                $arrayForIter[$i] = $nextItem;
-                $arrayForIter[$i + 1] = $curItem;
-            }
-        }
+        rearrangementArray(array_splice($arrayForIter, 1));
+
     }
 
-    //$result = array_unique($result);
 
     return $result;
 }
+
+
+
+
+
