@@ -14,7 +14,7 @@ function permutations(string $s): array {
         $result[] = implode($sArray);
         $result[] = implode(array_reverse($sArray));
 
-        return $result;
+        return array_unique($result);
     } else {
         foreach ($sArray as $key => $item) {
             $firstItem = $item;
