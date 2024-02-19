@@ -45,20 +45,30 @@ function getCombine($sArray) {
 
 function permutations(string $s): array {
     $sArray = str_split($s);
+    $result = [];
 
-    foreach ($sArray as $key => $item) {
+    if (count($sArray) == 2) {
+        $result[] = implode($sArray);
+        $result[] = implode(array_reverse($sArray));
 
-        $firstItem = $item;
-        $arrayForReq = $sArray;
-        unset($arrayForReq[$key]);
-        array_unshift($arrayForReq, $firstItem);
+        return $result;
+    } else {
 
-        $result[] = getCombine(array_slice($arrayForReq, 1));
+        foreach ($sArray as $key => $item) {
 
+            $firstItem = $item;
+            $arrayForIter = $sArray;
+            unset($arrayForIter[$key]);
 
+            $arrayForCombo = permutations(implode($arrayForIter));
+
+            foreach ($arrayForCombo as $value) {
+                $result[] = $firstItem . $value;
+            }
+        }
+
+        return $result;
     }
-
-    return $result;
 }
 
 
