@@ -2,42 +2,37 @@
 
 // https://www.codewars.com/kata/5254ca2719453dcc0b00027d
 
-class Lex
-{
-    public int $n;
-    public array $p;
-    public array $used;
-    public string $str;
-
-    public function __construct(int $n) {
-        $this->n = $n;
-    }
-
-    public function makeLex(int $pos) {
-        if ($pos === $this->n) {
-            for ($i = 0; $i < $this->n; $i++) {
-                echo $this->p[$i];
-            }
-
-            return;
-        }
-
-        for ($i = 0; $i < $this->n; $i++) {
-            if (!$this->used[$i]) {
-                $this->used[$i] = true;
-                $this->p[$pos] = $i;
-
-                $this->makeLex($pos + 1);
-
-                $this->p[$pos] = 0;
-                $this->used[$i] = false;
-            }
-        }
-    }
-}
-
 function permutations(string $s): array {
-    $lex = new Lex(strlen($s));
+    $sArray = str_split($s);
+    $result = [];
 
-    exit();
+    if (count($sArray) == 1) {
+        $result[] = implode($sArray);
+
+        return $result;
+    } else if (count($sArray) == 2) {
+        $result[] = implode($sArray);
+        $result[] = implode(array_reverse($sArray));
+
+        return array_unique($result);
+    } else {
+        foreach ($sArray as $key => $item) {
+            $firstItem = $item;
+            $arrayForIter = $sArray;
+            unset($arrayForIter[$key]);
+
+            $arrayForCombo = permutations(implode($arrayForIter));
+
+            foreach ($arrayForCombo as $value) {
+                $result[] = $firstItem . $value;
+            }
+        }
+
+        return array_unique($result);
+    }
 }
+
+
+
+
+
