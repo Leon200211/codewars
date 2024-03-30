@@ -3,17 +3,28 @@
 // https://www.codewars.com/kata/5324945e2ece5e1f32000370/train/php
 
 function sum_strings($a, $b) {
-    if (strlen($a) < strlen($b)) {
+    $a = str_split(strrev(ltrim($a, '0')));
+    $b = str_split(strrev(ltrim($b, '0')));
+
+    if (count($a) < count($b)) {
         list($a,$b)=[$b,$a];
     }
 
-    $a = str_split(strrev($a));
-    $b = str_split(strrev($b));
-
     $magnifier = 0;
+    $iterator = 0;
 
-    foreach ($b as $key => $value) {
-        $sum = (int)$a[$key] + (int)$b[$key] + $magnifier;
+    while (true) {
+        if ($magnifier === 0 && $iterator >= count($b)) {
+            break;
+        }
+
+        if (array_key_exists($iterator, $b)) {
+            $sum = (int)$a[$iterator] + (int)$b[$iterator] + $magnifier;
+        } else if (array_key_exists($iterator, $a)) {
+            $sum = (int)$a[$iterator] + $magnifier;
+        } else {
+            $sum = $magnifier;
+        }
 
         if ($magnifier > 0) {
             $magnifier = 0;
@@ -23,16 +34,8 @@ function sum_strings($a, $b) {
             $magnifier++;
         }
 
-        $a[$key] = $sum % 10;
-//        $nextKey = ++$key;
-
-//        if ($magnifier > 0) {
-//            if (array_key_exists($nextKey, $a)) {
-//                $a[$nextKey] = $a[$nextKey] + $magnifier;
-//            } else {
-//                $a[$nextKey] = $magnifier;
-//            }
-//        }
+        $a[$iterator] = $sum % 10;
+        $iterator++;
     }
 
     return strrev(implode($a));
