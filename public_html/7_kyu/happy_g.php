@@ -28,3 +28,12 @@ function g_happy(string $str): bool {
 
     return true;
 }
+
+
+//function g_happy(string $str): bool {
+//    return false === strpos(preg_replace('/g{2,}/', '', $str), 'g');
+//}
+//
+//function g_happy(string $str): bool {
+//    return !preg_match("/([^g]|^)g([^g]|$)/", $str);
+//}
