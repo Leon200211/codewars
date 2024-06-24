@@ -16,3 +16,8 @@ function dashatize(int $num): string {
 
     return trim(preg_replace('/(-)\1+/', '$1', $result), '-');
 }
+
+
+//function dashatize(int $num): string {
+//    return trim(str_replace('--', '-', preg_replace('/([13579])/','-$1-', $num)), '-');
+//}
