@@ -1,6 +1,6 @@
 <?php
 
-require_once '7_kyu/happy_g.php';
+require_once '6_kyu/dashatize_it.php';
 
 
-var_dump(g_happy('gg0gg3gg0gg'));
+echo dashatize(5531);
