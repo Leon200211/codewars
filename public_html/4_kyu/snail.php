@@ -47,3 +47,19 @@ function snail(array $array): array {
 
     return $result;
 }
+
+
+function snail_2(array $array): array {
+    $snail = [];
+
+    while(!empty($array)){
+        $snail = array_merge($snail, (array) array_shift($array));
+
+        if(isset($array[0][0])){
+            $array = array_map('array_reverse', $array);
+            $array = array_map(null,...$array);
+        }
+    }
+
+    return $snail;
+}
