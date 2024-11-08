@@ -1,5 +1,9 @@
 <?php
 
-require_once '7_kyu/high_and_low.php';
+require_once '4_kyu/snail.php';
 
-echo highAndLow('8 3 -5 42 -1 0 0 -9 4 7 4 -4');
+var_dump(snail([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]));
