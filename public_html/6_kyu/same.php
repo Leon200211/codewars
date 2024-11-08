@@ -26,3 +26,17 @@ function comp($a1, $a2) {
 
     return true;
 }
+
+function comp_2($a1, $a2) {
+
+    if ( is_null($a1) || is_null($a2) )
+        return false;
+
+    $t = array_map(function($v) {
+        return $v * $v;
+    }, $a1);
+
+    sort($a2);
+    sort($t);
+    return $a2 == $t;
+}
