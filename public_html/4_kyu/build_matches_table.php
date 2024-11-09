@@ -50,10 +50,6 @@ function buildMatchesTable_2(int $numberOfTeams): array
 
     while ($roundsCount !== $combinationCount)
     {
-        if ($round == 1) {
-            $a = 1;
-        }
-
         foreach ($teams as $firstTeam) {
             if (in_array($firstTeam, $alreadyRoundsPlayed)) {
                 continue;
