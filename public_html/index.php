@@ -1,8 +1,5 @@
 <?php
 
-require_once '6_kyu/same.php';
+require_once '4_kyu/build_matches_table.php';
 
-var_dump(comp(
-    [2, 2, 3],
-    [4, 9, 9]
-));
+var_dump(buildMatchesTable(20));
