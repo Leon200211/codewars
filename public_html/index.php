@@ -1,5 +1,5 @@
 <?php
 
-require_once '4_kyu/build_matches_table.php';
+require_once '6_kyu/is_prime.php';
 
-var_dump(buildMatchesTable(20));
+var_dump(is_prime(5234571809));
