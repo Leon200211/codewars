@@ -1,5 +1,5 @@
 <?php
 
-require_once '6_kyu/is_prime.php';
+require_once '5_kyu/move_zeros.php';
 
-var_dump(is_prime(5234571809));
+var_dump(moveZeros([false,1,0,1,2,0,1,3,"a"]));
