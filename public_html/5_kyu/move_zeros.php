@@ -29,3 +29,15 @@ function moveZeros(array $items): array
 
     return $items;
 }
+
+function moveZeros_2(array $items): array
+{
+    foreach ($items as $key => $item) {
+        if ($item !== 0 && $item !== 0.0) {
+            unset($items[$key]);
+            $items[] = $item;
+        }
+    }
+
+    return array_values($items);
+}

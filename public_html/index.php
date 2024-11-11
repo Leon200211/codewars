@@ -1,5 +1,5 @@
 <?php
 
-require_once '5_kyu/move_zeros.php';
+require_once '5_kyu/human_readable.php';
 
-var_dump(moveZeros([false,1,0,1,2,0,1,3,"a"]));
+var_dump(humanReadable(0));
