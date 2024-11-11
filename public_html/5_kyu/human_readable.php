@@ -18,3 +18,8 @@ function humanReadable($seconds): string
 
     return "{$hours}:{$minutes}:{$seconds}";
 }
+
+function humanReadable_2(int $seconds): string
+{
+    return sprintf('%02d:%02d:%02d', $seconds / 3600, ($seconds % 3600) / 60, $seconds % 60);
+}
