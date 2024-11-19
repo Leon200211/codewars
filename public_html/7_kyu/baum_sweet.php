@@ -3,13 +3,11 @@
 // https://www.codewars.com/kata/5d2659626c7aec0022cb8006
 
 function baumSweet() {
-    $result = [];
-
     for ($i = 0; $i < 30; $i++) {
         $binary = decbin($i);
 
         if ($binary === '0') {
-            $result[] = 1;
+            yield 1;
 
             continue;
         }
@@ -23,7 +21,7 @@ function baumSweet() {
 
             if ($digit !== '0' && $zeroCount !== 0) {
                 if ($zeroCount & 1) {
-                    $result[] = 0;
+                    yield 0;
 
                     continue 2;
                 }
@@ -31,11 +29,17 @@ function baumSweet() {
         }
 
         if ($zeroCount & 1) {
-            $result[] = 0;
+            yield 0;
         } else {
-            $result[] = 1;
+            yield 1;
         }
     }
+}
 
-    return $result;
+function baumSweet_2() {
+    yield 1;
+
+    for ($n = 1; true; $n++) {
+        yield preg_match('/(^|1)0(00)*(1|$)/', decbin($n)) ? 0 : 1;
+    }
 }
