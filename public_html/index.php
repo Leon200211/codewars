@@ -1,5 +1,5 @@
 <?php
 
-require_once '5_kyu/ips_between.php';
+require_once '8_kyu/pipe_fix.php';
 
-var_dump(ips_between('10.11.13.0', '10.11.13.55'));
+var_dump(pipeFix([1, 2, 3, 5, 6, 8, 9]));
