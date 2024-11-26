@@ -1,5 +1,5 @@
 <?php
 
-require_once '6_kyu/rev_rot.php';
+require_once '4_kyu/dbl_linear.php';
 
-var_dump(revRot('733049910872815764', 5));
+var_dump(dblLinear(50));
