@@ -1,5 +1,5 @@
 <?php
 
-require_once '4_kyu/dbl_linear.php';
+require_once '4_kyu/determinant.php';
 
-var_dump(dblLinear(50));
+var_dump(determinant([[1]]));
