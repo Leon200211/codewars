@@ -1,5 +1,5 @@
 <?php
 
-require_once '4_kyu/determinant.php';
+require_once '8_kyu/is_vow.php';
 
-var_dump(determinant([[1]]));
+var_dump(isVow([101,121,101]));
