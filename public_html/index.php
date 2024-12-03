@@ -1,5 +1,5 @@
 <?php
 
-require_once '8_kyu/is_vow.php';
+require_once '7_kyu/automorphic.php';
 
-var_dump(isVow([101,121,101]));
+var_dump(automorphic(25));
