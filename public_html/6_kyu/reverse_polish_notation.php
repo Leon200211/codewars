@@ -44,3 +44,21 @@ function calc(string $expr): float {
 
     return $result;
 }
+
+function calc_2(string $s): float {
+    if($s === '') {return 0;}
+    $tokens = [];
+    foreach(explode(' ', $s) as $token) {
+        if(is_numeric($token)) array_push($tokens, floatval($token));
+        else {
+            $u = array_pop($tokens); $v = array_pop($tokens);
+            switch($token) {
+                case '+': array_push($tokens, $v+$u); break;
+                case '-': array_push($tokens, $v-$u); break;
+                case '*': array_push($tokens, $v*$u); break;
+                case '/': array_push($tokens, $v/$u); break;
+            }
+        }
+    }
+    return array_pop($tokens);
+}
